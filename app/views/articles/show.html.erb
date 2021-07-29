@@ -1,5 +1,10 @@
 <h1 align="center">This is the SHOW page</h1>
 <p align="center">
-<strong>Title: </strong> <%= @article.title %> <br>
-<strong>Description: </strong> <%= @article.description%>
+    <strong>Title: </strong> <%= @article.title %> <br>
+    <strong>Description: </strong> <%= @article.description%> <br>
+</p>
+<p align="center"> 
+    <button><%= link_to 'Back', articles_path %></button>
+    <button><%= link_to 'Edit', edit_article_path(@article) %></button>
+    <button><%= link_to 'Delete', article_path(@article), method: :delete, data: {confirm: "Are you sure?"} %></button>
 </p>

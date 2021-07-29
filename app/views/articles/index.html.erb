@@ -14,9 +14,16 @@
         <tr>
             <td><%= art.title %></td>
             <td><%= art.description %></td>
-            <td><button>Show</button></td>
+            <td>
+                <button><%= link_to 'Show', article_path(art) %></button>
+                <button><%= link_to 'Edit', edit_article_path(art) %></button>
+                <button><%= link_to 'Delete', article_path(art), method: :delete, data: {confirm: "Are you sure?"} %></button>
+            </td>
         </tr>
         <% end %>
     </tbody>
-
 </table>
+
+<p align="center">
+    <button><%= link_to 'New Article', new_article_path %></button>
+</p>
