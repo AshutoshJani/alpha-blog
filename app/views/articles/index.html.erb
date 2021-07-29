@@ -1,0 +1,22 @@
+<h1 align="center">This is the ARTICLES LISTING page</h1>
+
+<table align="center">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody align="center">
+        <% @articles.each do |art| %>
+        <tr>
+            <td><%= art.title %></td>
+            <td><%= art.description %></td>
+            <td><button>Show</button></td>
+        </tr>
+        <% end %>
+    </tbody>
+
+</table>
