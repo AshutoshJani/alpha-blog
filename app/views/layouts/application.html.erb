@@ -11,9 +11,7 @@
   </head>
 
   <body>
-    <% flash.each do |name, message| %>
-      <%= message %>
-    <% end %>
+    <%= render 'layouts/messages' %>  <!-- calls the _messages.html.erb text_field but for the layouts folder you need to specify the folder name as well -->
     <%= yield %>
   </body>
 </html>

@@ -1,30 +1,5 @@
 <h1>This is the CREATE page</h1>
 
-<p style="color: red">
-    <% if @article.errors.any? %> 
-        <b>The article could not be created because of the following errors: </b>
-        <ul>
-            <% @article.errors.full_messages.each do |err_msg| %>
-                <li style="color: red"><%= err_msg %></li>
-            <% end %>
-        </ul>
-    <% end %>
-</p>
+<%= render 'errors' %>  <!-- calls the _errors.html.erb text_field -->
 
-<%= form_with scope: :article, url: articles_path, local: true do |f| %>
-
-    <p>
-        <%= f.label :title %> <br>
-        <%= f.text_field :title %>
-    </p>
-
-    <p>
-        <%= f.label :description %> <br>
-        <%= f.text_area :description %>
-    </p>
-
-    <p>
-        <button><%= link_to 'Back', articles_path %></button> <%= f.submit %>
-    </p>
-
-<% end %>
+<%= render 'form' %>    <!-- calls the _form.html.erb text_field -->
