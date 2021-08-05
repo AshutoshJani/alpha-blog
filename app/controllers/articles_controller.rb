@@ -20,7 +20,11 @@ class ArticlesController < ApplicationController
 
     def create
         @article = Article.new(set_params) 
+
+        @article.user_id = User.first.id #Manually set the user of new articles as the first user since no authentication system yet
+
         # render plain: @article.inspect #prints out the value of @article on the browser
+        
         if @article.save
             #flash is used to display 'alert' or 'notice' messages in the web page
             flash[:notice] = "Article was created successfully." #flash is a hash type data structure and is usually enables in view/layouts/application.html.erb since that is shared between all the html pages
