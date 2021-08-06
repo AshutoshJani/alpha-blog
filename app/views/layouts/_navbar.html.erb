@@ -1,5 +1,5 @@
 <!-- The entire nav tag has been taken as an example from the bootstrap componenets section -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
     <div class="container-fluid">
     <%# <a class="navbar-brand" href="#">Navbar</a> %>
     <%= link_to "ALPHA BLOG", root_path, class: "navbar-brand" %>
@@ -35,10 +35,21 @@
         --->
 
         </ul>
-        <form class="d-flex">
+
+        <%# Commented out the search bar %>
+        <form class="d-flex me-auto">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
+
+        <ul class="nav navbar-nav navbar-right me-2 mb-2 mb-lg-0">
+            <li class="navbar-item">
+                <div class="btn-group" role="group" aria-label="Basic outlined example">
+                    <button type="button" class="btn btn-outline-success">Login</button>
+                    <%= link_to "Sign Up", signup_path, class: "btn btn-success" %>
+                </div>            
+            </li>
+        </ul>
     </div>
     </div>
 </nav>
