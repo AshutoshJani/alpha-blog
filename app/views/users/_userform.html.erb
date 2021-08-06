@@ -27,7 +27,8 @@
                 </div>
 
                 <p>
-                    <%= link_to 'Back', root_path, class: "btn btn-outline-danger btn-lg" %> <%= f.submit "Sign Up", class: "btn btn-outline-success btn-lg" %>
+                    <%= link_to 'Back', root_path, class: "btn btn-outline-danger btn-lg" %> 
+                    <%= f.submit( @user.new_record? ? "Sign Up" : "Update account", class: "btn btn-outline-success btn-lg") %>
                 </p>
 
             <% end %>

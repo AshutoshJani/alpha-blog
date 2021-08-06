@@ -14,6 +14,21 @@ class UsersController < ApplicationController
         end
     end
 
+    def edit
+        @user = User.find(params[:id])
+    end
+
+    def update
+        @user = User.find(params[:id])
+        render plain: @user.inspect
+        # if @user.update(set_params)
+        #     flash[:notice] = "Your information was successfully updated"
+        #     redirect_to root_path
+        # else
+        #     render 'edit'
+        # end
+    end
+
     private
 
     def set_params
