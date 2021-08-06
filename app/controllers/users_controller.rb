@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
+    before_action :set_user, only: [:show, :edit, :update]
 
     def new
-        @user = User.new
+
+    end
+
+    def show
+        @articles = @user.articles
     end
 
     def create
@@ -15,11 +20,10 @@ class UsersController < ApplicationController
     end
 
     def edit
-        @user = User.find(params[:id])
+
     end
 
     def update
-        @user = User.find(params[:id])
         render plain: @user.inspect
         # if @user.update(set_params)
         #     flash[:notice] = "Your information was successfully updated"
@@ -30,6 +34,10 @@ class UsersController < ApplicationController
     end
 
     private
+
+    def set_user
+        @user = User.find(params[:id])
+    end
 
     def set_params
         params.require(:user).permit(:username, :email, :password) #cannot provide parameters directly due to security so need to specify the columns (this is called strong parameters and whitelisting data)
