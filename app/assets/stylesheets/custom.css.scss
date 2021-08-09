@@ -1,5 +1,12 @@
 @import 'bootstrap/dist/css/bootstrap';
+@import "font-awesome";
 
+html,
 body {
     background-color: lightgray;
+    height: 100%;
 }
+
+#sticky-footer {
+    flex-shrink: none;
+  }
