@@ -1,7 +1,16 @@
 <h1 class="text-center mt-4">This is the USERS LISTING page</h1>
 
+<div class="flickr_pagination mt-4">
+    <%= will_paginate @users, :container => false %>
+</div>
+
 <%= render 'user' %>
 
-<div class="text-center mt-4">
+<div class="flickr_pagination mt-4 mb-4">
+    <%= will_paginate @users, :container => false %>
+</div>
+
+<div class="text-center mt-4 mb-4">
     <%= link_to 'Back', :back, class: "text-center btn btn-outline-danger btn-lg" %>
 </div>
+

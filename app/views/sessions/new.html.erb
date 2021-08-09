@@ -1,16 +1,19 @@
-<%# form partial  %>
+<h1 class="text-center mt-4">This is the LOGIN page</h1>
 
 <div class="container" align="center"> 
     <div class="row justify-content-center">
         <div class="col-10">
-            <%= form_with(scope: :user, url: users_path, class: "shadow p-3 mb-3 bg-info rounded", local: true) do |f| %>
+            <%= form_with(scope: :session, url: login_path, class: "shadow p-3 mb-3 bg-info rounded", local: true) do |f| %>
                 
+                <!---
+                <%# We can also use username to log in %>
                 <div class="form-group mb-3 row">
                     <%= f.label :username, class: "col-sm-2 col-form-label text-light" %>
                     <div class="col-sm-10">
-                        <%= f.text_field :username, class: "form-control shadow rounded", placeholder: "Enter a username" %>
+                        <%= f.text_field :username, class: "form-control shadow rounded", placeholder: "Enter your username" %>
                     </div>
                 </div>
+                --->
 
                 <div class="form-group mb-3 row">
                     <%= f.label :email, class: "col-sm-2 col-form-label text-light" %>
@@ -18,17 +21,16 @@
                         <%= f.email_field :email, rows: 10, class: "form-control shadow rounded", placeholder: "Enter your email address" %>
                     </div>
                 </div>
-
+                
                 <div class="form-group mb-3 row">
                     <%= f.label :password, class: "col-sm-2 col-form-label text-light" %>
                     <div class="col-sm-10">
-                        <%= f.password_field :password, class: "form-control shadow rounded", placeholder: "Choose a password" %>
+                        <%= f.password_field :password, class: "form-control shadow rounded", placeholder: "Enter your password" %>
                     </div>
                 </div>
 
                 <p>
-                    <%= link_to 'Back', :back, class: "btn btn-outline-danger btn-lg" %> 
-                    <%= f.submit( @user.new_record? ? "Sign Up" : "Update account", class: "btn btn-outline-success btn-lg") %>
+                    <%= link_to 'Back', articles_path, class: "btn btn-outline-danger btn-lg" %> <%= f.submit "Log in", class: "btn btn-outline-success btn-lg" %>
                 </p>
 
             <% end %>

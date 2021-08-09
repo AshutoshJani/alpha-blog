@@ -29,6 +29,9 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # Font-awesome
 gem "font-awesome-rails"
 
+# Pagination
+gem 'will_paginate', '~> 3.1.0'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
