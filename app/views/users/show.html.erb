@@ -4,7 +4,9 @@
 
 <div class="text-center mt-4">
     <%= link_to 'Back', :back, class: "text-center btn btn-outline-danger btn-lg" %>
-    <%= link_to 'Edit your Profile', edit_user_path(@user), class: "text-center btn btn-outline-info btn-lg" %>
+    <% if logged_in? && @user == current_user %>
+        <%= link_to 'Edit your Profile', edit_user_path(@user), class: "text-center btn btn-outline-info btn-lg" %>
+    <% end %>
 </div>
 
 <h3 class="text-center mt-4 mb-4">Articles</h3>

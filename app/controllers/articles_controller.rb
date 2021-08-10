@@ -10,7 +10,12 @@ class ArticlesController < ApplicationController
     end
 
     def new
-        @article = Article.new
+        if logged_in?
+            @article = Article.new
+        else
+            redirect_to login_path
+            flash[:notice] = "You will need to login/sign up to create new article"
+        end
     end
 
     def edit
@@ -21,7 +26,8 @@ class ArticlesController < ApplicationController
     def create
         @article = Article.new(set_params) 
 
-        @article.user_id = User.first.id #Manually set the user of new articles as the first user since no authentication system yet
+        # @article.user_id = User.first.id #Manually set the user of new articles as the first user since no authentication system yet
+        @article.user = current_user
 
         # render plain: @article.inspect #prints out the value of @article on the browser
         
