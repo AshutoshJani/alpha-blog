@@ -43,8 +43,13 @@
         <ul class="nav navbar-nav navbar-right me-2 mb-2 mb-lg-0">
             <li class="navbar-item">
                 <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <%= link_to "Login", login_path, class: "btn btn-outline-success" %>
-                    <%= link_to "Sign Up", signup_path, class: "btn btn-success" %>
+                    <% if logged_in? %>
+                        <%= link_to current_user[:username], user_path(current_user), class: "btn btn-outline-info" %>
+                        <%= link_to "Logout", logout_path, class: "btn btn-danger", method: :delete %>
+                    <% else %>
+                        <%= link_to "Login", login_path, class: "btn btn-outline-success" %>
+                        <%= link_to "Sign Up", signup_path, class: "btn btn-success" %>
+                    <% end %>
                 </div>            
             </li>
         </ul>
