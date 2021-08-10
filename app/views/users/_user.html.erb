@@ -13,7 +13,8 @@
                         <p class="card-text"><%= pluralize(user.articles.count, "article") %></p>
                         <%= link_to "View Profile", user, class: "btn btn-outline-success" %>  
                         <% if logged_in? && user == current_user %>
-                            <%= link_to "Edit Profile", edit_user_path(user), class: "btn btn-outline-info" %>    
+                            <%= link_to "Edit Profile", edit_user_path(user), class: "btn btn-outline-info" %> 
+                            <%= link_to "Delete account", user_path(current_user), class: "btn btn-outline-danger", method: :delete, data: { confirm: "This action will delete your account and all associated articles as well, are you sure you want to delete your account" } %>   
                         <% end %>          
                     </div>
                     <div class="card-footer text-muted">
