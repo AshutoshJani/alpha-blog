@@ -46,7 +46,7 @@
                     <% if logged_in? %>
 
                         <button type="button" class="btn btn-outline-info dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <%= current_user[:username] %>
+                            <%= "(Admin)" if current_user[:admin] %> <%= current_user[:username] %>
                         </button>
                         <div class="dropdown-menu">
                             <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
