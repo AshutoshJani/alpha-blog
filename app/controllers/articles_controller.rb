@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
     before_action :set_article, only: [:show, :edit, :update, :destroy] #runs the set_action function before running these functions only
+    before_action :require_user, except: [:show, :index]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
 
     def show
 
@@ -65,6 +67,13 @@ class ArticlesController < ApplicationController
 
     def set_params
         params.require(:article).permit(:title, :description) #cannot provide parameters directly due to security so need to specify the columns (this is called strong parameters and whitelisting data)
+    end
+
+    def require_same_user
+        if current_user != @article.user
+            flash[:alert] = "You cannot edit or delete someone else's articles"
+            redirect_to articles_path
+        end
     end
 
 end

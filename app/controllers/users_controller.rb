@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:show, :edit, :update]
+    before_action :require_user, only: [:edit, :update]
+    before_action :require_same_user, only: [:edit, :update]
 
     def new
         @user = User.new
@@ -46,6 +48,13 @@ class UsersController < ApplicationController
 
     def set_params
         params.require(:user).permit(:username, :email, :password) #cannot provide parameters directly due to security so need to specify the columns (this is called strong parameters and whitelisting data)
+    end
+
+    def require_same_user
+        if current_user != @user
+            flash[:alert] = "You cannot perform that action on this user"
+            redirect_to users_path
+        end
     end
 
 end
