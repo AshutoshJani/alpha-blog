@@ -1,0 +1,6 @@
+class Category < ApplicationRecord
+
+    validates :name, presence: true, uniqueness: true, length: { minimum: 3, maximum: 25 }
+    # validates_uniqueness_of :name #this can used as well to test for uniqueness
+
+end
