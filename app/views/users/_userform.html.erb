@@ -28,7 +28,8 @@
 
                 <p>
                     <%= link_to 'Back', :back, class: "btn btn-outline-danger btn-lg" %> 
-                    <%= f.submit( @user.new_record? ? "Sign Up" : "Update account", class: "btn btn-outline-success btn-lg") %>
+                    <%# f.submit( @user.new_record? ? "Sign Up" : "Update account", class: "btn btn-outline-success btn-lg") %>
+                    <%= f.submit class: "btn btn-outline-success btn-lg" %>
                 </p>
 
             <% end %>

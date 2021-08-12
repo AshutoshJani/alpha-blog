@@ -3,6 +3,11 @@ require "test_helper"
 # Integration testing tests the entire workflow of a section/feature of the application
 
 class CreateCategoryTest < ActionDispatch::IntegrationTest
+
+  def setup
+    @admin_user = User.create(username: "admin", email: "admin@email.com", password: "admin", admin: true )
+    set_user_as(@admin_user)
+  end
   
   test "get new category form and create category" do
     get "/categories/new"
