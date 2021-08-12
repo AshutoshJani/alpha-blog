@@ -3,6 +3,7 @@ class Article < ApplicationRecord
     # One to many association
     belongs_to :user
 
+    # Many to many association
     has_many :article_categories
     has_many :categories, through: :article_categories
 
