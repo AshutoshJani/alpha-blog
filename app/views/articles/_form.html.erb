@@ -19,6 +19,20 @@
                     </div>
                 </div>
 
+                <div class="form-group row mb-3">
+                    <%= f.label :category, class: "col-2 col-form-label text-light" %>
+                    <div class="col-10"> 
+                        <%= f.collection_select( # It acts like check boxes
+                            :category_ids, # Method: Defines where the output of this collection_select goes (i.e. which attribute)
+                            Category.all, # Collection: Defines what the options are (here the options are different category names and their id value is returned to the back-end)
+                            :id, # Value Method: Defines what value is to be returned to the back-end
+                            :name, # Text Method: Defines what is displayed for each option
+                            options = { prompt: "Select category (ctrl+click for multiple, can also be none)" }, #  Options: Includes other helpful functions like prompt that give a message in the first line
+                            html_options = { multiple: true, size: 4, class: "custom-select shadow rounded w-100" } # HTML Options: Includes HTML classes and helpers
+                            ) %>
+                    </div>
+                </div>
+
                 <p>
                     <%= link_to 'Back', articles_path, class: "btn btn-outline-danger btn-lg" %> <%= f.submit class: "btn btn-outline-success btn-lg" %>
                 </p>

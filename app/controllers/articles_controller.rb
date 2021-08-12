@@ -66,7 +66,7 @@ class ArticlesController < ApplicationController
     end
 
     def set_params
-        params.require(:article).permit(:title, :description) #cannot provide parameters directly due to security so need to specify the columns (this is called strong parameters and whitelisting data)
+        params.require(:article).permit(:title, :description, category_ids: []) #cannot provide parameters directly due to security so need to specify the columns (this is called strong parameters and whitelisting data)
     end
 
     def require_same_user
