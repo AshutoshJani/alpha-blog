@@ -11,6 +11,7 @@
                 <div class="card text-center">
                     <div class="card-body">
                         <h5 class="card-title"><%= link_to cat.name, category_path(cat), class: "link-success" %></h5>
+                        <p class="card-text"><%= pluralize(cat.articles.count, "article") %></p>
                         <%= link_to 'View', category_path(cat), class: "btn btn-outline-success" %>
                     </div>
                     <div class="card-footer text-muted">
